@@ -1,0 +1,401 @@
+/* ============================================================
+   Services Section — 3D Carousel
+   ============================================================ */
+
+.services-section {
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-base);
+}
+
+/* ---------- ambient background glows ---------- */
+.services-bg-glow {
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  filter: blur(160px);
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.services-bg-glow--left {
+  top: 10%;
+  left: -120px;
+  background: var(--accent-primary);
+}
+
+.services-bg-glow--right {
+  bottom: 5%;
+  right: -120px;
+  background: var(--accent-secondary);
+}
+
+/* ---------- badge ---------- */
+.services-badge {
+  display: inline-block;
+  padding: 6px 18px;
+  margin-bottom: 16px;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent-secondary);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 999px;
+  background: rgba(59, 130, 246, 0.08);
+}
+
+/* ============================================================
+   Carousel
+   ============================================================ */
+
+.carousel-wrapper {
+  position: relative;
+  margin-top: 56px;
+  z-index: 1;
+}
+
+.carousel-stage {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 560px;
+  perspective: 1200px;
+}
+
+/* ============================================================
+   Card base
+   ============================================================ */
+
+.carousel-card {
+  position: absolute;
+  width: 380px;
+  display: flex;
+  flex-direction: column;
+  padding: 36px 30px 30px;
+  border-radius: 20px;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-surface);
+  overflow: hidden;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform, opacity, filter;
+
+  /* Default: hidden */
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(0) scale(0.7);
+  z-index: 1;
+}
+
+/* Position: center (active) */
+.carousel-card[data-pos="0"] {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0) scale(1);
+  z-index: 10;
+  border-color: rgba(0, 102, 255, 0.3);
+  box-shadow:
+    0 8px 40px rgba(0, 102, 255, 0.15),
+    0 0 80px rgba(0, 102, 255, 0.08);
+  cursor: default;
+}
+
+.carousel-card[data-pos="0"]:hover {
+  transform: translateY(-6px) scale(1.02);
+}
+
+/* Position: +1 (right) */
+.carousel-card[data-pos="1"] {
+  opacity: 0.7;
+  pointer-events: auto;
+  transform: translateX(340px) rotateY(-8deg) scale(0.88);
+  z-index: 8;
+  filter: blur(1px);
+}
+
+/* Position: -1 (left) */
+.carousel-card[data-pos="-1"] {
+  opacity: 0.7;
+  pointer-events: auto;
+  transform: translateX(-340px) rotateY(8deg) scale(0.88);
+  z-index: 8;
+  filter: blur(1px);
+}
+
+/* Position: +2 */
+.carousel-card[data-pos="2"] {
+  opacity: 0.35;
+  pointer-events: auto;
+  transform: translateX(600px) rotateY(-14deg) scale(0.75);
+  z-index: 5;
+  filter: blur(3px);
+}
+
+/* Position: -2 */
+.carousel-card[data-pos="-2"] {
+  opacity: 0.35;
+  pointer-events: auto;
+  transform: translateX(-600px) rotateY(14deg) scale(0.75);
+  z-index: 5;
+  filter: blur(3px);
+}
+
+/* Position: +3 / -3 (Hidden back layers) */
+.carousel-card[data-pos="3"],
+.carousel-card[data-pos="-3"] {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(0) scale(0.6);
+  z-index: 1;
+}
+
+/* Glow overlay */
+.carousel-card__glow {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  background: radial-gradient(
+    500px circle at 50% 30%,
+    rgba(0, 102, 255, 0.1),
+    transparent 60%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.carousel-card[data-pos="0"] .carousel-card__glow {
+  opacity: 1;
+}
+
+/* ---------- number badge ---------- */
+.service-card__number {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  font-family: var(--font-heading);
+  font-size: 3.2rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -2px;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 102, 255, 0.2),
+    rgba(59, 130, 246, 0.06)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  user-select: none;
+  z-index: 0;
+}
+
+/* ---------- icon ---------- */
+.carousel-card__icon-wrap {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  margin-bottom: 20px;
+  color: var(--c, var(--accent-primary));
+  background: rgba(0, 102, 255, 0.08);
+  border: 1px solid rgba(0, 102, 255, 0.15);
+  transition: box-shadow 0.35s ease;
+}
+
+.carousel-card[data-pos="0"] .carousel-card__icon-wrap {
+  box-shadow: 0 0 24px rgba(0, 102, 255, 0.2);
+}
+
+/* ---------- title ---------- */
+.carousel-card__title {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+/* ---------- description ---------- */
+.carousel-card__desc {
+  position: relative;
+  z-index: 1;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+
+/* ---------- features ---------- */
+.carousel-card__features {
+  position: relative;
+  z-index: 1;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.carousel-card__features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.carousel-card__check {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--accent-primary);
+}
+
+/* ---------- learn more ---------- */
+.carousel-card__link {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--accent-secondary);
+  text-decoration: none;
+  margin-top: auto;
+  transition: gap 0.3s ease, color 0.3s ease;
+}
+
+.carousel-card__link::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  border-radius: 1px;
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+  transition: width 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.carousel-card[data-pos="0"] .carousel-card__link::after {
+  width: 100%;
+}
+
+.carousel-card[data-pos="0"] .carousel-card__link {
+  gap: 10px;
+  color: var(--accent-primary);
+}
+
+/* ============================================================
+   Navigation Arrows
+   ============================================================ */
+
+.carousel-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid var(--border-subtle);
+  background: rgba(18, 20, 23, 0.8);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 20;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.carousel-nav:hover {
+  background: rgba(0, 102, 255, 0.15);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+  box-shadow: 0 0 25px rgba(0, 102, 255, 0.25);
+  transform: translateY(-50%) scale(1.15);
+}
+
+.carousel-nav--prev { left: 20px; }
+.carousel-nav--next { right: 20px; }
+
+/* ============================================================
+   Dots
+   ============================================================ */
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 2.5rem;
+}
+
+.carousel-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid var(--border-subtle);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  padding: 0;
+}
+
+.carousel-dot--active {
+  background: var(--accent-primary);
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 14px rgba(0, 102, 255, 0.6);
+  transform: scale(1.3);
+}
+
+.carousel-dot:hover:not(.carousel-dot--active) {
+  border-color: var(--accent-secondary);
+  background: rgba(0, 102, 255, 0.25);
+}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+
+@media (max-width: 1200px) {
+  .carousel-card[data-pos="1"] { transform: translateX(280px) rotateY(-8deg) scale(0.85); }
+  .carousel-card[data-pos="-1"] { transform: translateX(-280px) rotateY(8deg) scale(0.85); }
+  .carousel-card[data-pos="2"],
+  .carousel-card[data-pos="-2"] { opacity: 0; pointer-events: none; }
+}
+
+@media (max-width: 768px) {
+  .carousel-stage { height: 520px; }
+  .carousel-card { width: 300px; padding: 28px 22px 24px; }
+  .carousel-card[data-pos="1"] { transform: translateX(220px) rotateY(-6deg) scale(0.82); opacity: 0.5; }
+  .carousel-card[data-pos="-1"] { transform: translateX(-220px) rotateY(6deg) scale(0.82); opacity: 0.5; }
+  .carousel-nav--prev { left: 4px; }
+  .carousel-nav--next { right: 4px; }
+  .carousel-nav { width: 42px; height: 42px; }
+  .service-card__number { font-size: 2.6rem; }
+}
+
+@media (max-width: 480px) {
+  .carousel-card { width: 270px; }
+  .carousel-card[data-pos="1"],
+  .carousel-card[data-pos="-1"] { opacity: 0.3; filter: blur(3px); }
+  .carousel-card__features { display: none; }
+}

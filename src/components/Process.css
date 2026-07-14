@@ -1,0 +1,346 @@
+/* ===== Process Section ===== */
+.process-section {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background orbs */
+.process-bg-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(140px);
+  opacity: 0.07;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.process-bg-orb--1 {
+  width: 500px;
+  height: 500px;
+  background: var(--accent-primary);
+  top: 10%;
+  right: -150px;
+}
+
+.process-bg-orb--2 {
+  width: 400px;
+  height: 400px;
+  background: #8B5CF6;
+  bottom: 5%;
+  left: -120px;
+}
+
+/* Overline */
+.process-overline {
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--accent-primary);
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+}
+
+/* ===== Timeline container ===== */
+.process-timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  margin-top: 4rem;
+  padding-bottom: 2rem;
+}
+
+/* ===== Vertical animated line ===== */
+.process-line {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 100%;
+  transform: translateX(-50%);
+  z-index: 0;
+}
+
+.process-line-inner {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    var(--accent-primary) 10%,
+    var(--accent-secondary) 50%,
+    #8B5CF6 90%,
+    transparent 100%
+  );
+  opacity: 0.3;
+}
+
+/* Glowing animated dot that travels down the line */
+.process-line-glow {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 8px;
+  height: 40px;
+  transform: translateX(-50%);
+  border-radius: 4px;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    var(--accent-primary),
+    transparent
+  );
+  filter: blur(2px);
+  animation: processGlowTravel 4s ease-in-out infinite;
+  z-index: 1;
+}
+
+@keyframes processGlowTravel {
+  0% {
+    top: -40px;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    top: calc(100% + 40px);
+    opacity: 0;
+  }
+}
+
+/* ===== Step ===== */
+.process-step {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 900px;
+  position: relative;
+  z-index: 1;
+  gap: 2rem;
+}
+
+.process-step--left {
+  flex-direction: row;
+}
+
+.process-step--right {
+  flex-direction: row-reverse;
+}
+
+/* ===== Node (number circle on the line) ===== */
+.process-node {
+  position: relative;
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.process-node-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid var(--step-color, var(--accent-primary));
+  background: var(--bg-surface);
+  box-shadow:
+    0 0 20px color-mix(in srgb, var(--step-color, var(--accent-primary)) 30%, transparent),
+    inset 0 0 12px color-mix(in srgb, var(--step-color, var(--accent-primary)) 10%, transparent);
+  transition: box-shadow 0.4s ease;
+}
+
+.process-step:hover .process-node-ring {
+  box-shadow:
+    0 0 30px color-mix(in srgb, var(--step-color, var(--accent-primary)) 50%, transparent),
+    inset 0 0 20px color-mix(in srgb, var(--step-color, var(--accent-primary)) 15%, transparent);
+}
+
+.process-node-number {
+  position: relative;
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--step-color, var(--accent-primary));
+  z-index: 1;
+}
+
+/* Pulse behind node */
+.process-node-pulse {
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 1px solid var(--step-color, var(--accent-primary));
+  opacity: 0;
+  animation: nodePulse 3s ease-out infinite;
+}
+
+@keyframes nodePulse {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+/* ===== Card ===== */
+.process-card {
+  flex: 1;
+  padding: 2rem 2.25rem;
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.process-card:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.3),
+    0 0 30px color-mix(in srgb, var(--step-color, var(--accent-primary)) 8%, transparent);
+}
+
+/* Icon */
+.process-card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: color-mix(in srgb, var(--step-color, var(--accent-primary)) 12%, transparent);
+  color: var(--step-color, var(--accent-primary));
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.process-card:hover .process-card-icon {
+  transform: scale(1.1) rotate(-4deg);
+  background: color-mix(in srgb, var(--step-color, var(--accent-primary)) 20%, transparent);
+}
+
+/* Title */
+.process-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+/* Description */
+.process-card-desc {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* Corner decorative accent */
+.process-card-corner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(
+    circle at top right,
+    color-mix(in srgb, var(--step-color, var(--accent-primary)) 10%, transparent),
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+/* Connector stub from node to card */
+.process-step--left .process-card::before,
+.process-step--right .process-card::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 24px;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    var(--step-color, var(--accent-primary)),
+    transparent
+  );
+  opacity: 0.4;
+  transform: translateY(-50%);
+}
+
+.process-step--left .process-card::before {
+  left: -24px;
+}
+
+.process-step--right .process-card::before {
+  right: -24px;
+  transform: translateY(-50%) rotate(180deg);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .process-timeline {
+    gap: 2rem;
+    align-items: flex-start;
+    padding-left: 2rem;
+  }
+
+  .process-line {
+    left: 2rem;
+    transform: none;
+  }
+
+  .process-step--left,
+  .process-step--right {
+    flex-direction: row;
+  }
+
+  .process-node {
+    width: 48px;
+    height: 48px;
+  }
+
+  .process-node-number {
+    font-size: 1rem;
+  }
+
+  .process-card {
+    padding: 1.5rem;
+  }
+
+  .process-card-title {
+    font-size: 1.1rem;
+  }
+
+  .process-step--right .process-card::before {
+    right: auto;
+    left: -24px;
+    transform: translateY(-50%);
+  }
+}
+
+@media (max-width: 480px) {
+  .process-timeline {
+    padding-left: 0.5rem;
+    gap: 1.5rem;
+  }
+
+  .process-node {
+    width: 40px;
+    height: 40px;
+  }
+
+  .process-card {
+    padding: 1.25rem;
+  }
+}

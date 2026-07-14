@@ -1,0 +1,189 @@
+.solar-section {
+  position: relative;
+  width: 100%;
+  padding: 6rem 0;
+  overflow: hidden;
+  background: var(--bg-base);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.solar-container {
+  position: relative;
+  width: 1000px;
+  height: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: scale(0.8); /* Scale down a bit for smaller screens, will handle properly in media queries */
+}
+
+/* Central Sun */
+.solar-sun {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.solar-sun-core {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 40px rgba(0, 102, 255, 0.6), 0 0 80px rgba(0, 102, 255, 0.4);
+  z-index: 2;
+}
+
+.solar-sun-text {
+  color: white;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.5rem;
+}
+
+.solar-sun-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 102, 255, 0.3);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: pulse-ring 4s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.solar-sun-ring--1 { width: 100px; height: 100px; animation-delay: 0s; }
+.solar-sun-ring--2 { width: 140px; height: 140px; animation-delay: 1.33s; }
+.solar-sun-ring--3 { width: 180px; height: 180px; animation-delay: 2.66s; }
+
+@keyframes pulse-ring {
+  0% { transform: translate(-50%, -50%) scale(0.5); opacity: 0; }
+  50% { opacity: 0.5; }
+  100% { transform: translate(-50%, -50%) scale(1.5); opacity: 0; }
+}
+
+/* Orbits */
+.solar-orbit {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+/* Planet Wrapper for Rotation */
+.solar-planet-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  animation-name: orbit;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+/* The Planet Itself */
+.solar-planet {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center on the orbit line */
+  background: var(--bg-surface);
+  border: 2px solid var(--planet-color);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--planet-color);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5), inset 0 0 10px rgba(0, 0, 0, 0.5);
+  pointer-events: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.solar-planet > svg {
+  /* Counter-rotate the icon so it stays upright */
+  animation-name: counter-orbit;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.solar-planet:hover {
+  transform: translate(-50%, -50%) scale(1.2);
+  box-shadow: 0 0 20px var(--planet-color);
+  z-index: 20;
+}
+
+.solar-planet-label {
+  position: absolute;
+  top: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 4px 8px;
+  border-radius: 4px;
+  pointer-events: none;
+  /* Counter-rotate the label so it stays upright */
+  animation-name: counter-orbit;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.solar-planet:hover .solar-planet-label {
+  opacity: 1;
+}
+
+@keyframes orbit {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes counter-orbit {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(-360deg); }
+}
+
+/* Responsiveness - keep it consistent but scaled */
+@media (max-width: 1024px) {
+  .solar-container {
+    transform: scale(0.6);
+  }
+}
+
+@media (max-width: 768px) {
+  .solar-container {
+    transform: scale(0.4);
+  }
+  
+  .solar-section {
+      padding: 2rem 0; /* less padding on mobile */
+      min-height: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .solar-container {
+    transform: scale(0.3);
+  }
+  .solar-section {
+      min-height: 350px;
+  }
+}
