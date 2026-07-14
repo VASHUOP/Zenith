@@ -21,7 +21,7 @@ const company = [
 const socials = [
   { icon: Globe, label: 'Website', href: '#' },
   { icon: Camera, label: 'Instagram', href: '#' },
-  { icon: Mail, label: 'Email', href: 'mailto:hello@zenithdigital.ai' },
+  { icon: Mail, label: 'Email', href: 'mailto:ZenithDigital.ai@gmail.com' },
 ];
 
 export default function Footer() {
@@ -99,7 +99,7 @@ export default function Footer() {
             <ul className="footer-contact">
               <li>
                 <Mail size={16} className="footer-contact-icon" />
-                <a href="mailto:hello@zenithdigital.ai">hello@zenithdigital.ai</a>
+                <a href="mailto:ZenithDigital.ai@gmail.com">ZenithDigital.ai@gmail.com</a>
               </li>
               <li>
                 <Phone size={16} className="footer-contact-icon" />

@@ -22,6 +22,7 @@ export default function Navbar() {
           <li className="animate-on-scroll delay-100"><a href="#services">Services</a></li>
           <li className="animate-on-scroll delay-200"><a href="#process">How We Work</a></li>
           <li className="animate-on-scroll delay-300"><a href="#testimonials">Reviews</a></li>
+          <li className="animate-on-scroll delay-400"><a href="#blog">Blog</a></li>
           <li className="animate-on-scroll delay-400"><a href="#founders">Founders</a></li>
         </ul>
         <a href="#contact" className="btn btn-primary nav-btn animate-on-scroll delay-500" style={{textDecoration: 'none'}}>
