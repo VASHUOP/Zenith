@@ -9,7 +9,7 @@ const testimonials = [
     quote:
       'ZenithDigital transformed our online presence completely. Our leads increased by 300% within just 3 months. Their Meta Ads strategy was a game-changer for our business.',
     name: 'Rahul Sharma',
-    role: 'CEO of TechVault',
+    role: 'CEO',
     delay: 'delay-100',
     metric: '300%',
     metricLabel: 'Lead Increase',
@@ -19,7 +19,7 @@ const testimonials = [
     quote:
       "The website they built for us is absolutely stunning. The animations and user experience are world-class. We've seen a 5x increase in customer engagement.",
     name: 'Priya Patel',
-    role: 'Founder of StyleHive',
+    role: 'Founder',
     delay: 'delay-300',
     metric: '5x',
     metricLabel: 'Engagement',
@@ -29,7 +29,7 @@ const testimonials = [
     quote:
       'Their video production quality is unmatched. Every piece of content they create converts. Best digital agency we have ever worked with.',
     name: 'Amit Kumar',
-    role: 'Director of GrowthBox',
+    role: 'Director',
     delay: 'delay-500',
     metric: '#1',
     metricLabel: 'Agency Choice',

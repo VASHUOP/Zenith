@@ -447,8 +447,25 @@
   .lead-form {
     flex-direction: column;
     border-radius: 1rem;
+    backdrop-filter: none;
+    background: rgba(10, 10, 15, 0.9);
   }
   .pulse-btn {
     border-radius: 0.75rem;
   }
+  
+  /* Performance optimizations for mobile */
+  .hero-bg-graphic {
+    display: none;
+  }
+  .hero-interactive-bg {
+    display: none;
+  }
+  .stars, .stars2, .stars3 {
+    animation: none;
+  }
+  .shooting-stars {
+    display: none;
+  }
 }
+
