@@ -1,0 +1,163 @@
+.about-page {
+  padding-top: 120px;
+  padding-bottom: 80px;
+  min-height: 100vh;
+}
+
+.ap-hero {
+  text-align: center;
+  margin-bottom: 4rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ap-overline {
+  color: var(--accent-primary);
+  font-weight: 600;
+  letter-spacing: 2px;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.ap-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  color: white;
+}
+
+.ap-subtitle {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+}
+
+.ap-philosophy {
+  display: flex;
+  gap: 4rem;
+  padding: 4rem;
+  border-radius: 1.5rem;
+  margin-bottom: 5rem;
+  align-items: center;
+}
+
+.ap-philosophy-content {
+  flex: 2;
+}
+
+.ap-philosophy-content h2 {
+  font-size: 2.2rem;
+  color: white;
+  margin-bottom: 1.5rem;
+}
+
+.ap-philosophy-content p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.ap-philosophy-content p:last-child {
+  margin-bottom: 0;
+}
+
+.ap-philosophy-stats {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 2.5rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.ap-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.ap-stat-value {
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.ap-stat-label {
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+}
+
+.ap-values {
+  margin-bottom: 5rem;
+}
+
+.ap-values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.ap-value-card {
+  padding: 2.5rem;
+  border-radius: 1rem;
+  text-align: left;
+}
+
+.ap-value-card h3 {
+  font-size: 1.3rem;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.ap-value-card p {
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.ap-cta {
+  padding: 4rem 2rem;
+  margin-top: 4rem;
+}
+
+.ap-cta h2 {
+  font-size: 2rem;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.ap-cta p {
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 992px) {
+  .ap-philosophy {
+    flex-direction: column;
+    padding: 2.5rem;
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .ap-title {
+    font-size: 2.5rem;
+  }
+  
+  .ap-philosophy-stats {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}

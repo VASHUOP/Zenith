@@ -77,68 +77,35 @@ export default function Hero() {
           willChange: 'transform'
         }}
       >
-        <div className="hero-badge animate-on-scroll delay-100">
-          <Zap size={14} /> #1 Digital Agency in India
-        </div>
-
-        <h1 className="hero-title">
-          <span className="hero-line animate-on-scroll delay-200">Elevate Your</span><br />
-          <span className="hero-line animate-on-scroll delay-300">
-            <span className="text-gradient hero-word-cycle" key={currentWord}>
-              Digital {words[currentWord]}
+        <div className="hero-content">
+          <div className="hero-badge animate-on-scroll delay-100">
+            <span>🚀 High-Converting Digital Solutions</span>
+          </div>
+          <h1 className="hero-title">
+            <span className="hero-line animate-on-scroll delay-200">
+              Predictable <span className="text-gradient">Growth</span>
             </span>
-          </span>
-        </h1>
-
-        <p className="hero-subtitle animate-on-scroll delay-400">
-          We are <strong className="text-gradient">ZenithDigital.ai</strong> — a premium digital agency helping brands
-          dominate online. From stunning websites to high-ROI ad campaigns, we engineer every touchpoint
-          for maximum growth and conversions.
-        </p>
-
-        <div className="hero-features animate-on-scroll delay-500">
-          <div className="hero-feature">
-            <Shield size={18} className="hero-feature-icon" />
-            <span>Guaranteed Results</span>
-          </div>
-          <div className="hero-feature">
-            <BarChart3 size={18} className="hero-feature-icon" />
-            <span>3x Average ROI</span>
-          </div>
-          <div className="hero-feature">
-            <Zap size={18} className="hero-feature-icon" />
-            <span>Launch in 2 Days</span>
+            <br />
+            <span className="hero-line animate-on-scroll delay-300">
+              For Ambitious Brands
+            </span>
+          </h1>
+          <p className="hero-subtitle animate-on-scroll delay-400">
+            Stop guessing. We transform your online presence into a high-converting customer acquisition system using AI, modern web design, and data-driven advertising.
+          </p>
+          <div className="hero-actions animate-on-scroll delay-500" style={{ display: 'flex', justifyContent: 'center', gap: '1rem' }}>
+            <a href="#contact" className="btn btn-primary pulse-btn" style={{ textDecoration: 'none' }}>
+              <span>Book Free Strategy Call <ArrowRight size={16} style={{display:'inline', verticalAlign:'middle'}} /></span>
+            </a>
+            <a href="#case-studies" className="btn btn-secondary pulse-btn" style={{ textDecoration: 'none', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}>
+              <span>View Case Studies</span>
+            </a>
           </div>
         </div>
 
         <div className="hero-lead-capture animate-on-scroll delay-600">
-          <form className="lead-form" onSubmit={(e) => {
-            e.preventDefault();
-            setIsSubmitting(true);
-            setTimeout(() => {
-              setIsSubmitting(false);
-              setIsSubmitted(true);
-              setTimeout(() => setIsSubmitted(false), 3000);
-            }, 1500);
-          }}>
-            <input type="email" placeholder="Enter your email to scale..." className="lead-input" required disabled={isSubmitting || isSubmitted} />
-            <button 
-              type="submit" 
-              className={`btn btn-primary pulse-btn ${isSubmitted ? 'btn-success' : ''}`}
-              disabled={isSubmitting || isSubmitted}
-              style={{ minWidth: '160px', transition: 'all 0.3s ease' }}
-            >
-              {isSubmitting ? (
-                <Loader2 className="spinner" size={20} />
-              ) : isSubmitted ? (
-                <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}><CheckCircle size={18} /> Sent!</span>
-              ) : (
-                <span>Get Started <ArrowRight size={16} style={{display:'inline', verticalAlign:'middle'}} /></span>
-              )}
-            </button>
-          </form>
-          <p className="hero-trust">
-            ✨ Trusted by <strong>150+</strong> innovative brands across India
+          <p className="hero-trust" style={{ marginTop: '2rem' }}>
+            ✨ Trusted by businesses serious about growth
           </p>
         </div>
       </div>

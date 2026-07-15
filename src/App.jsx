@@ -1,32 +1,29 @@
 import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Stats from './components/Stats';
-import Services from './components/Services';
-import Process from './components/Process';
-import Skills from './components/Skills';
-import Testimonials from './components/Testimonials';
-import Founders from './components/Founders';
-import Blog from './components/Blog';
-import Contact from './components/Contact';
 import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
+import MobileStickyCTA from './components/MobileStickyCTA';
+import Home from './pages/Home';
+import FullCaseStudy from './pages/FullCaseStudy';
+import ServicesPage from './pages/ServicesPage';
+import AboutUs from './pages/AboutUs';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
     <>
+      <ScrollToTop />
       <Navbar />
-      <Hero />
-      <Stats />
-      <Services />
-      <Process />
-      <Skills />
-      <Testimonials />
-      <Founders />
-      <Blog />
-      <Contact />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/services" element={<ServicesPage />} />
+        <Route path="/about" element={<AboutUs />} />
+        <Route path="/case-studies/:id" element={<FullCaseStudy />} />
+      </Routes>
       <Footer />
       <WhatsAppButton />
+      <MobileStickyCTA />
     </>
   );
 }

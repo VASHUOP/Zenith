@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './Navbar.css';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
@@ -17,15 +18,14 @@ export default function Navbar() {
   return (
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="container nav-content">
-        <div className="logo animate-on-scroll">ZenithDigital<span className="accent">.ai</span></div>
+        <Link to="/" className="logo animate-on-scroll" style={{ textDecoration: 'none', color: 'white' }}>ZenithDigital<span className="accent">.ai</span></Link>
         <ul className="nav-links">
-          <li className="animate-on-scroll delay-100"><a href="#services">Services</a></li>
-          <li className="animate-on-scroll delay-200"><a href="#process">How We Work</a></li>
-          <li className="animate-on-scroll delay-300"><a href="#testimonials">Reviews</a></li>
-          <li className="animate-on-scroll delay-400"><a href="#blog">Blog</a></li>
-          <li className="animate-on-scroll delay-400"><a href="#founders">Founders</a></li>
+          <li className="animate-on-scroll delay-100"><Link to="/services">Services</Link></li>
+          <li className="animate-on-scroll delay-200"><Link to="/about">About Us</Link></li>
+          <li className="animate-on-scroll delay-300"><Link to="/#testimonials">Reviews</Link></li>
+          <li className="animate-on-scroll delay-400"><Link to="/#founders">Founders</Link></li>
         </ul>
-        <a href="#contact" className="btn btn-primary nav-btn animate-on-scroll delay-500" style={{textDecoration: 'none'}}>
+        <a href="/#contact" className="btn btn-primary nav-btn animate-on-scroll delay-500" style={{textDecoration: 'none'}}>
           <span>Let's Talk</span>
         </a>
       </div>

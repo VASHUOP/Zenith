@@ -7,31 +7,31 @@ const steps = [
     number: '01',
     title: 'Discovery & Strategy',
     description:
-      'We analyze your market, competitors, and goals to build a winning blueprint.',
+      'We dive deep into your business metrics, identifying exactly where you are losing money and mapping a precise path to growth.',
     Icon: Search,
     color: '#0066FF',
   },
   {
     number: '02',
-    title: 'Design & Develop',
+    title: 'System Architecture',
     description:
-      'Our team crafts stunning, conversion-optimized designs and robust applications.',
+      'We design and develop your custom acquisition assets — from high-converting landing pages to AI automation workflows.',
     Icon: Palette,
     color: '#3B82F6',
   },
   {
     number: '03',
-    title: 'Launch & Optimize',
+    title: 'Launch & Traffic',
     description:
-      'We deploy, test, and fine-tune everything for maximum performance.',
+      'We deploy the system and flip the switch on targeted traffic, capturing high-intent leads from day one.',
     Icon: Rocket,
     color: '#6366F1',
   },
   {
     number: '04',
-    title: 'Scale & Grow',
+    title: 'Scale & Optimise',
     description:
-      'Continuous optimization and scaling strategies to keep you ahead of the competition.',
+      'We continuously track data, split-test creatives, and refine the engine to drive down your Cost Per Acquisition (CPA) while scaling volume.',
     Icon: BarChart3,
     color: '#8B5CF6',
   },
@@ -49,13 +49,12 @@ export default function Process() {
       <div className="container">
         {/* Header */}
         <div className="section-header animate-on-scroll">
-          <p className="process-overline">OUR PROCESS</p>
+          <p className="process-overline">DISCOVERY TO LAUNCH</p>
           <h2 className="section-title">
-            How We <span className="text-gradient">Work</span>
+            Our Proven <span className="text-gradient">Process</span>
           </h2>
           <p className="section-subtitle">
-            A proven four-step framework that transforms ideas into high-impact
-            digital products — on time and on budget.
+            A transparent, predictable 4-step framework that turns your business into a scalable customer acquisition machine.
           </p>
         </div>
 

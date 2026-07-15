@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import {
   Code2,
   Megaphone,
@@ -17,86 +18,72 @@ const services = [
   {
     num: '01',
     icon: Code2,
-    title: 'Web & App Development',
+    title: 'Business Growth Websites',
     description:
-      'We craft blazing-fast, pixel-perfect websites and mobile applications that turn visitors into loyal customers. Our full-stack team delivers scalable solutions using cutting-edge frameworks.',
+      'We don\'t just build pretty websites. We engineer high-converting digital storefronts designed to capture attention and turn cold traffic into paying customers.',
     features: [
-      'Custom React, Next.js & React Native builds',
       'Conversion-optimised UI/UX design',
-      'Headless CMS & e-commerce integrations',
-      'Performance audits & Core Web Vitals tuning',
+      'Lightning-fast load times (Core Web Vitals)',
+      'Clear, persuasive copywriting',
+      'Seamless mobile experience',
     ],
     color: '#0066FF',
   },
   {
     num: '02',
     icon: Megaphone,
-    title: 'Meta Ads Campaign',
+    title: 'Customer Acquisition Systems',
     description:
-      'Unlock the full power of Facebook and Instagram advertising with data-driven campaigns that reach exactly the right audience and maximise your return on ad spend.',
+      'Stop burning money on ineffective ads. We build data-driven Meta and Google Ad systems that consistently acquire customers at a profitable ROI.',
     features: [
-      'Audience research & lookalike modelling',
-      'A/B tested ad creatives & copy',
-      'Retargeting funnels & dynamic product ads',
-      'Real-time analytics dashboards & reporting',
+      'Data-driven audience targeting',
+      'High-converting ad creatives & copy',
+      'Advanced retargeting funnels',
+      'Transparent ROI reporting',
     ],
     color: '#3B82F6',
   },
   {
     num: '03',
     icon: UserCheck,
-    title: 'Leads Generation',
+    title: 'Predictable Lead Engine',
     description:
-      'Fill your sales pipeline with high-intent prospects through multi-channel lead generation strategies. We build systems that consistently deliver qualified leads ready to convert.',
+      'Fill your sales pipeline with high-intent prospects. We build multi-channel inbound systems that deliver qualified leads ready to convert.',
     features: [
-      'High-converting landing page design',
-      'Email & WhatsApp drip sequences',
-      'CRM integration & lead scoring',
-      'Cost-per-lead optimisation & scaling',
+      'High-converting landing pages',
+      'Automated email nurture sequences',
+      'CRM integration & lead tracking',
+      'Cost-per-lead optimisation',
     ],
     color: '#6366F1',
   },
   {
     num: '04',
-    icon: TrendingUp,
-    title: 'Boosting Sales',
+    icon: Bot,
+    title: 'AI Employees & Automation',
     description:
-      'Go beyond traffic — turn clicks into revenue with conversion rate optimisation and strategic growth consulting. We analyse every step of your customer journey.',
+      'Scale without adding headcount. We deploy smart AI agents and automated workflows to handle customer support and qualify leads 24/7.',
     features: [
-      'Conversion funnel audits & heatmap analysis',
-      'Upsell, cross-sell & bundle strategies',
-      'Cart abandonment recovery workflows',
-      'Revenue attribution & ROI tracking',
+      'Custom WhatsApp & Web Chatbots',
+      '24/7 automated customer support',
+      'Lead qualification workflows',
+      'Seamless API integrations',
     ],
-    color: '#8B5CF6',
+    color: '#10B981',
   },
   {
     num: '05',
     icon: Video,
-    title: 'Video Shoot & Editing',
+    title: 'Brand Content Studio',
     description:
-      'Bring your brand to life with cinematic video content that captivates audiences across every platform. From concept to final cut, we deliver scroll-stopping content.',
+      'Command attention in a crowded market with premium video content and brand assets that build absolute trust and authority with your audience.',
     features: [
-      'Professional on-location & studio shoots',
-      'Motion graphics & animated explainers',
-      'Platform-optimised edits (Reels, Shorts)',
-      'Colour grading, sound design & subtitling',
+      'Cinematic video shoots & editing',
+      'Short-form content (Reels/Shorts)',
+      'Brand identity & visual language',
+      'Scroll-stopping motion graphics',
     ],
     color: '#EC4899',
-  },
-  {
-    num: '06',
-    icon: Bot,
-    title: 'AI Automation & Bots',
-    description:
-      'Automate customer support, lead qualification, and internal processes using cutting-edge AI chatbots and workflows. Never miss a lead with 24/7 intelligent agents.',
-    features: [
-      'Custom WhatsApp & Web Chatbots',
-      '24/7 automated customer support',
-      'Lead qualification & booking workflows',
-      'CRM & external API integrations',
-    ],
-    color: '#10B981',
   },
 ];
 
@@ -124,11 +111,10 @@ const Services = () => {
         <div className="section-header" style={{ textAlign: 'center' }}>
           <span className="services-badge">What We Do</span>
           <h2 className="section-title">
-            Services That <span className="text-gradient">Drive Results</span>
+            Growth <span className="text-gradient">Solutions</span>
           </h2>
           <p className="section-subtitle" style={{ maxWidth: '640px', margin: '0 auto' }}>
-            End-to-end digital solutions designed to accelerate growth, amplify your brand, and
-            deliver measurable ROI.
+            End-to-end digital systems designed to predictably acquire customers, scale revenue, and build absolute trust.
           </p>
         </div>
 
@@ -171,9 +157,9 @@ const Services = () => {
                     ))}
                   </ul>
 
-                  <a href="#contact" className="carousel-card__link">
+                  <Link to="/services" className="carousel-card__link">
                     Learn More <ArrowRight size={16} />
-                  </a>
+                  </Link>
                 </div>
               );
             })}

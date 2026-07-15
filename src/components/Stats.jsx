@@ -46,10 +46,10 @@ function AnimatedCounter({ target, suffix = '', duration = 2000 }) {
 }
 
 const statsData = [
-  { target: 150, suffix: '+', label: 'Projects Delivered', description: 'Successfully launched' },
-  { target: 50, suffix: '+', label: 'Happy Clients', description: 'Worldwide partners' },
-  { target: 3, suffix: 'x', label: 'Average ROI', description: 'Return on investment' },
-  { target: 24, suffix: '/7', label: 'Support', description: 'Always available' },
+  { target: 7, suffix: ' Days', label: 'Average Launch Time', description: 'From strategy to live system' },
+  { target: 3.5, suffix: 'x', label: 'Average ROI', description: 'Across active campaigns' },
+  { target: 95, suffix: '%', label: 'Client Retention', description: 'Long-term partnerships' },
+  { target: 4, suffix: '', label: 'Published Case Studies', description: 'Verified results' },
 ];
 
 export default function Stats() {
