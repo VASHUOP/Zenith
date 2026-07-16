@@ -41,5 +41,14 @@ export function useSEO({ title, description, keywords, ogImage }) {
       if (ogImgTag) ogImgTag.setAttribute('content', ogImage);
     }
 
+    // Update Canonical URL
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute('href', window.location.origin + window.location.pathname);
+
   }, [title, description, keywords, ogImage]);
 }

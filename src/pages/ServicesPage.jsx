@@ -74,9 +74,9 @@ const detailedServices = [
 
 export default function ServicesPage() {
   useSEO({
-    title: 'Growth Marketing & AI Services | ZenithDigital.ai',
-    description: 'Explore our outcome-driven services: Conversion Architecture, Meta & Google Ads, Predictable Lead Engines, and Custom AI Chatbot Automation.',
-    keywords: 'marketing services, AI automation services, conversion architecture, lead generation services'
+    title: 'Web Design & Growth Marketing Services in Bahadurgarh | Zenith Digital',
+    description: 'Outcomes-driven services by a premium web developer in Bahadurgarh: conversion-focused web design, Meta & Google Ads management, predictable lead engines, and custom AI chatbot automations.',
+    keywords: 'web design services Bahadurgarh, website development Bahadurgarh, digital marketing services Bahadurgarh, Zenith Digital services, local web developer'
   });
 
   useEffect(() => {

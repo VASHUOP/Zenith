@@ -16,9 +16,9 @@ import Contact from '../components/Contact';
 
 export default function Home() {
   useSEO({
-    title: 'ZenithDigital.ai | Premium AI Growth & Lead Generation Agency',
-    description: 'Transform your business with ZenithDigital.ai. We build predictable customer acquisition systems, high-converting websites, and AI automation for ambitious brands.',
-    keywords: 'AI growth agency, customer acquisition, lead generation, meta ads, business growth systems, AI automation, ZenithDigital'
+    title: 'Bahadurgarh Web Developer & AI Growth Agency | Zenith Digital',
+    description: 'Scale your business with Zenith Digital. We are the leading web development and AI growth agency in Bahadurgarh, building high-converting websites and predictable customer acquisition funnels.',
+    keywords: 'Bahadurgarh web developer, web development company Bahadurgarh, website designer Bahadurgarh, Zenith Digital, AI growth agency, lead generation, customer acquisition, business automation'
   });
 
   return (

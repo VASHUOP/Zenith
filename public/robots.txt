@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://zenithdigital.ai/sitemap.xml
+Sitemap: https://www.bahadurgarhwebdeveloper.online/sitemap.xml

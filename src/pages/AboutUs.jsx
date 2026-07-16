@@ -5,9 +5,9 @@ import './AboutUs.css';
 
 export default function AboutUs() {
   useSEO({
-    title: 'About Our AI Growth Agency | ZenithDigital.ai',
-    description: 'Learn why ZenithDigital.ai is different. We reject vanity metrics and focus entirely on mathematical scaling, radical transparency, and massive ROI.',
-    keywords: 'AI growth agency, marketing agency philosophy, transparent digital agency, ZenithDigital team'
+    title: 'About Zenith Digital | Bahadurgarh Web Developer & Growth Agency',
+    description: 'Learn about Zenith Digital, a premier web developer and business automation partner in Bahadurgarh. We focus entirely on performance, speed, and massive ROI.',
+    keywords: 'about Zenith Digital, Bahadurgarh web developer team, web development company India, custom AI automation agency'
   });
 
   useEffect(() => {
