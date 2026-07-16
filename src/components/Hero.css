@@ -454,18 +454,30 @@
     border-radius: 0.75rem;
   }
   
-  /* Performance optimizations for mobile */
+  /* Optimized animations for mobile instead of removing them completely */
   .hero-bg-graphic {
-    display: none;
+    opacity: 0.5;
+    animation: bg-breathe 12s ease-in-out infinite alternate;
   }
-  .hero-interactive-bg {
-    display: none;
-  }
+  
   .stars, .stars2, .stars3 {
-    animation: none;
+    /* Keep animation but maybe slower or just leave as default */
+    /* By not setting animation: none, it inherits the desktop animation */
   }
+  
   .shooting-stars {
-    display: none;
+    /* Show shooting stars on mobile too, but maybe fewer or slower */
+    display: block;
+    opacity: 0.6;
   }
+  
+  .hero-content {
+    animation: mobileFloat 6s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes mobileFloat {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-10px); }
 }
 
